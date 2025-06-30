@@ -1,0 +1,7 @@
+Nombre: 7
+Email: 1
+Teléfono: 1245
+Fecha de registro: 2025-06-30 15:25:25
+
+Historial de servicios:
+[2025-06-30 15:25:25] test
