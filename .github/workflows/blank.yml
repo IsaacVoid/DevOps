@@ -1,0 +1,18 @@
+name: Consultar Cliente
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.py'
+
+jobs:
+  detectar-consulta:
+    if: contains(github.event.head_commit.message, 'consultar cliente')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar mensaje de consulta
+        run: |
+          echo "Acción detectada: Se ha realizado una consulta a un cliente."
+          echo "Notificar a usuario-dev y usuario-tester"
