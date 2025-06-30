@@ -2,41 +2,24 @@ import os
 from datetime import datetime
 
 BASE_DIR = "./clientes"
+
+# Crear directorio si no existe
 os.makedirs(BASE_DIR, exist_ok=True)
 
-# Tabla hash: nombre_cliente_normalizado -> ruta_archivo
-clientes_dict = {}
-
-def normalizar_nombre(nombre):
-    return nombre.strip().lower()
-
-def formatear_a_nombre_archivo(nombre):
-    return nombre.strip().lower().replace(" ", "_") + ".txt"
-
-def construir_diccionario_clientes():
-    clientes = {}
-    for archivo in os.listdir(BASE_DIR):
-        if archivo.endswith(".txt"):
-            nombre = archivo.replace("_", " ").replace(".txt", "").lower()
-            ruta = os.path.join(BASE_DIR, archivo)
-            clientes[nombre] = ruta
-    return clientes
+def obtener_ruta(nombre):
+    nombre_archivo = nombre.lower().replace(" ", "_")
+    return os.path.join(BASE_DIR, f"{nombre_archivo}.txt")
 
 def crear_cliente():
     nombre = input("Nombre del cliente: ")
-    clave = normalizar_nombre(nombre)
-
-    if clave in clientes_dict:
+    ruta = obtener_ruta(nombre)
+    if os.path.exists(ruta):
         print("El cliente ya existe.")
         return
-
     email = input("Correo electrónico: ")
     telefono = input("Teléfono: ")
     descripcion = input("Descripción del servicio solicitado: ")
     fecha = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    archivo_nombre = formatear_a_nombre_archivo(nombre)
-    ruta = os.path.join(BASE_DIR, archivo_nombre)
 
     with open(ruta, "w") as archivo:
         archivo.write(f"Nombre: {nombre}\n")
@@ -46,28 +29,23 @@ def crear_cliente():
         archivo.write("Historial de servicios:\n")
         archivo.write(f"[{fecha}] {descripcion}\n")
 
-    clientes_dict[clave] = ruta
     print("Cliente creado exitosamente.")
 
 def consultar_cliente():
     nombre = input("Nombre del cliente: ")
-    clave = normalizar_nombre(nombre)
-
-    if clave in clientes_dict:
-        with open(clientes_dict[clave], "r") as archivo:
+    ruta = obtener_ruta(nombre)
+    if os.path.exists(ruta):
+        with open(ruta, "r") as archivo:
             print(archivo.read())
     else:
         print("Cliente no encontrado.")
 
 def modificar_cliente():
     nombre = input("Nombre del cliente a modificar: ")
-    clave = normalizar_nombre(nombre)
-
-    if clave not in clientes_dict:
+    ruta = obtener_ruta(nombre)
+    if not os.path.exists(ruta):
         print("Cliente no encontrado.")
         return
-
-    ruta = clientes_dict[clave]
 
     print("¿Qué desea modificar?")
     print("1. Agregar nueva solicitud")
@@ -101,24 +79,21 @@ def modificar_cliente():
 
 def eliminar_cliente():
     nombre = input("Nombre del cliente a eliminar: ")
-    clave = normalizar_nombre(nombre)
-
-    if clave in clientes_dict:
-        os.remove(clientes_dict[clave])
-        del clientes_dict[clave]
+    ruta = obtener_ruta(nombre)
+    if os.path.exists(ruta):
+        os.remove(ruta)
         print("Cliente eliminado.")
     else:
         print("Cliente no encontrado.")
 
 def listar_clientes():
     print("Clientes registrados:")
-    for nombre in clientes_dict:
-        print(f"- {nombre.title()}")
+    for archivo in os.listdir(BASE_DIR):
+        if archivo.endswith(".txt"):
+            nombre = archivo.replace("_", " ").replace(".txt", "")
+            print(f"- {nombre}")
 
 def menu():
-    global clientes_dict
-    clientes_dict = construir_diccionario_clientes()
-
     while True:
         print("\n=== Menú de Gestión de Clientes ===")
         print("1. Crear nuevo cliente")
