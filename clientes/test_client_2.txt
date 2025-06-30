@@ -1,0 +1,7 @@
+Nombre: Test client 2
+Email: test@test.com
+Teléfono: 4523897610
+Fecha de registro: 2025-06-30 14:54:10
+
+Historial de servicios:
+[2025-06-30 14:54:10] test de validación de workflows
