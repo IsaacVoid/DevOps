@@ -1,0 +1,18 @@
+name: Actualizar Cliente
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.py'
+
+jobs:
+  detectar-actualizacion:
+    if: contains(github.event.head_commit.message, 'actualizar cliente')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar mensaje de actualización
+        run: |
+          echo "Acción detectada: Se ha actualizado un cliente existente."
+          echo "Notificar a usuario-dev y usuario-tester"
