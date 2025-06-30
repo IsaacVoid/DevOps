@@ -14,5 +14,5 @@ jobs:
     steps:
       - name: Mostrar mensaje de actualización
         run: |
-          echo "🔄 Acción detectada: Se ha actualizado un cliente existente."
-          echo "📣 Notificar a usuario-dev y usuario-tester"
+          echo "Acción detectada: Se ha actualizado un cliente existente."
+          echo "Notificar a usuario-dev y usuario-tester"

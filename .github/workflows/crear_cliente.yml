@@ -14,5 +14,5 @@ jobs:
     steps:
       - name: Mostrar mensaje de creación
         run: |
-          echo "🚀 Acción detectada: Se ha creado un nuevo cliente."
-          echo "📣 Notificar a usuario-dev y usuario-tester"
+          echo "Acción detectada: Se ha creado un nuevo cliente."
+          echo "Notificar a usuario-dev y usuario-tester"

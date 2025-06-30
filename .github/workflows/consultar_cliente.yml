@@ -14,5 +14,5 @@ jobs:
     steps:
       - name: Mostrar mensaje de consulta
         run: |
-          echo "📄 Acción detectada: Se ha realizado una consulta a un cliente."
-          echo "📣 Notificar a usuario-dev y usuario-tester"
+          echo "Acción detectada: Se ha realizado una consulta a un cliente."
+          echo "Notificar a usuario-dev y usuario-tester"
