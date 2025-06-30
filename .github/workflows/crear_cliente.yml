@@ -1,0 +1,18 @@
+name: Crear Cliente
+
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - '**/*.py'
+
+jobs:
+  detectar-creacion:
+    if: contains(github.event.head_commit.message, 'crear cliente')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar mensaje de creación
+        run: |
+          echo "🚀 Acción detectada: Se ha creado un nuevo cliente."
+          echo "📣 Notificar a usuario-dev y usuario-tester"
