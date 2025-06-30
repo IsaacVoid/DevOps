@@ -1,0 +1,8 @@
+Nombre: Test User 1
+Email: test_A@gmail.com
+Teléfono: 0123456789
+Fecha de registro: 2025-06-30 12:18:10
+
+Historial de servicios:
+[2025-06-30 12:18:10] Servicio de pruebas en desarrollo
+[2025-06-30 12:19:01] Prueba. Añadir segundo servicio desde modificar solicitud 
