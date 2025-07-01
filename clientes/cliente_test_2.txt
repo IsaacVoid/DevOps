@@ -1,0 +1,7 @@
+Nombre: Cliente Test 2
+Email: test@test.com
+Teléfono: 0103050706
+Fecha de registro: 2025-07-01 09:05:50
+
+Historial de servicios:
+[2025-07-01 09:05:50] Cliente de prueba para verificar funcionamiento de workflows
