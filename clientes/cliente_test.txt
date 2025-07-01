@@ -1,0 +1,7 @@
+Nombre: Cliente Test 
+Email: test2@gmail.com
+Teléfono: 8945231670
+Fecha de registro: 2025-07-01 08:21:26
+
+Historial de servicios:
+[2025-07-01 08:21:26] Prueba para workflows
