@@ -1,0 +1,7 @@
+Nombre: Usuario prueba 
+Email: test.test@test.com
+Teléfono: 0102030405
+Fecha de registro: 2025-07-03 22:49:50
+
+Historial de servicios:
+[2025-07-03 22:49:50] Cliente de prueba para verificar workflows
